@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dialogflow/dialogflow_v2.dart';
+//flutter_dialogflow: ^0.1.3
+//import 'package:flutter_dialogflow/dialogflow_v2.dart';
 
 void main() => runApp(new MyApp());
 
@@ -7,9 +8,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Example Dialogflow Flutter',
+      title: 'The chatbot',
       theme: new ThemeData(
-        primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.purple,
       ),
       debugShowCheckedModeBanner: false,
       home: new HomePageDialogflow(),
@@ -57,7 +58,7 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
     );
   }
 
-  void Response(query) async {
+  /*void Response(query) async {
     _textController.clear();
     AuthGoogle authGoogle =
         await AuthGoogle(fileJson: "assets/wwwdevbot.json").build();
@@ -67,6 +68,17 @@ class _HomePageDialogflow extends State<HomePageDialogflow> {
     ChatMessage message = new ChatMessage(
       text: response.getMessage() ??
           new CardDialogflow(response.getListMessage()[0]).title,
+      name: "Bot",
+      type: false,
+    );
+    setState(() {
+      _messages.insert(0, message);
+    });
+  }*/
+  void Response(query) {
+    _textController.clear();
+    ChatMessage message = new ChatMessage(
+      text: "Wait give me a little time more, I am still learning!!",
       name: "Bot",
       type: false,
     );
